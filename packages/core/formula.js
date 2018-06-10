@@ -1,7 +1,7 @@
 import buildPackageJson from "../syringe-formula-build-package/source/buildPackageJson";
 
 const definition = {
-    name: "syringe-core" // Note: Could be inferred from folder
+    name: "syringe" // Note: Could be inferred from folder
 };
 
 export default ({ job }) => [

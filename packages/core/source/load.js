@@ -5,3 +5,5 @@ const load = context => packageList => {
         }
     });
 };
+
+export default load;

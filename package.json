@@ -1,5 +1,15 @@
 {
     "name": "syringe",
     "private": true,
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "scripts": {
+        "start": "babel-node bootstrap.js"
+    },
+    "devDependencies": {
+        "babel": "^6.23.0",
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0"
+    }
 }

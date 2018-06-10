@@ -1,6 +1,6 @@
-import formulaMixer from "./packages/syringe-core/source/formulaMixer";
+import mixer from "./packages/syringe-core/source/mixer";
 
 /**
  * Bootstrap syringe into existence
  */
-formulaMixer(".");
+const syringe = mixer(__dirname);

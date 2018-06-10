@@ -3,3 +3,5 @@ const run = context => jobName => {
         throw new Error("Job does not exist: " + jobName);
     }
 };
+
+export default run;

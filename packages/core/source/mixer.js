@@ -1,13 +1,19 @@
 import path from "path";
 import run from "./run";
 import load from "./load";
+import { IRootPath } from "./symbols";
 
-const mix = pathName => {
-    const formula = require(path.join(pathName, "./formula.js")).default;
-    // const depends = (...deps) => {};
-    const context = { jobs: {} };
+const execute = async (formula, context) => {
+    if (formular instanceof Injectable) {
+        const outcome = await formular.inject(context);
+        const nextContext = Object.assign({}, context);
 
-    formula(context);
+    }
+};
+
+const mix = (initialContext, formula) => {
+    const context = { ...initialContext };
+    return execute(formula, context);
 };
 
 export default mix;

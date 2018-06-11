@@ -8,4 +8,10 @@ const rootPath = path.resolve();
 /**
  * Bootstrap syringe into existence
  */
-const syringe = mixer({ [IRootPath]: rootPath }, formula);
+mixer({ [IRootPath]: rootPath }, formula)
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error(error);
+    });

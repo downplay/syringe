@@ -1,14 +1,27 @@
-import buildPackageJson from "../syringe-formula-build-package/source/buildPackageJson";
+import { job } from "./source/job";
+
+import {
+    definePackage,
+    resolveSource,
+    createDistFolder,
+    buildPackageJson,
+    copySourceToMjs,
+    transpileSourceToCjs,
+    publishToNpm
+} from "../formula-build-package/source";
 
 const definition = {
-  name: "syringe" // Note: Could be inferred from folder
+    name: "@syringe/core" // Note: Could be inferred from folder
 };
 
-export default ({ job }) => [
-  package(definition),
-  job("build", ({ package }) => [
-    buildPackageJson,
-    copySourceFiles,
-    publishToNpm
-  ])
+export default () => [
+    definePackage(definition),
+    resolveSource(),
+    job("build", () => [
+        createDistFolder(),
+        buildPackageJson(),
+        copySourceToMjs(),
+        transpileSourceToCjs(),
+        publishToNpm()
+    ])
 ];

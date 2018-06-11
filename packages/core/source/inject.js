@@ -1,6 +1,4 @@
-import { isSymbol } from "util";
-
-class Injectable {
+export class Injectable {
     constructor(pattern, ejectables, subject) {
         this.pattern = pattern;
         this.ejectables = ejectables;
@@ -12,19 +10,17 @@ class Injectable {
             const dep = this.pattern[key];
             if (typeof dep !== "symbol") {
                 throw new Error(
-                    "Dependencies should be identified as Symbols, received " +
-                        dep.toString()
+                    `Dependencies should be identified as Symbols, received ${dep.toString()}`
                 );
             }
             if (!Object.hasOwnProperty.call(context, key)) {
-                throw new Error("Dependency not met: " + key.toString());
+                throw new Error(`Dependency not met: ${key.toString()}`);
             }
         }, {});
     }
 }
 
-const inject = (pattern, ejectables) => subject => {
-    return new Injectable(pattern, ejectables, subject);
-};
+const inject = (pattern, ejectables) => subject =>
+    new Injectable(pattern, ejectables, subject);
 
 export default inject;

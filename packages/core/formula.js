@@ -1,4 +1,4 @@
-import { job } from "./source/job";
+import { job } from "./source/jobs";
 
 import {
     definePackage,

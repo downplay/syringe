@@ -1,9 +1,10 @@
-import { load, run } from "./packages/core/source";
+import { load, run, logger } from "./packages/core/source";
 
 const args = process.argv;
 const jobName = args[2] || "build";
 
 const formula = () => [
+    logger(),
     load(
         "./packages/core",
         "./packages/formula-babel",
